@@ -22,7 +22,7 @@ interface KaomojiParticle {
 
 export default function AboutPage() {
   const [particles, setParticles] = useState<KaomojiParticle[]>([]);
-  const requestRef = useRef<number>();
+  const requestRef = useRef<number | null>(null);
   const [greetIndex, setGreetIndex] = useState(0);
   const [animateGreeting, setAnimateGreeting] = useState(false);
   const [showKaomojis, setShowKaomojis] = useState(true);

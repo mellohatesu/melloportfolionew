@@ -62,6 +62,7 @@ const typeSpeed = 140;
 const backspaceSpeed = 50;
 const pauseAfterTyping = 1000;
 
+
 export default function Page() {
   const router = useRouter();
   const cursorRef = useRef<HTMLDivElement>(null);
@@ -167,7 +168,7 @@ export default function Page() {
   }, [caseStudy]);
 
   // helper: media refs & intersection observer for autoplay & lazy load
-  const mediaRefs = useRef<(HTMLVideoElement | null)[]>([]);
+  const mediaRefs = useRef<Array<HTMLVideoElement | null>>([]);
   useEffect(() => {
     if (!caseStudy) return;
 
@@ -227,21 +228,24 @@ export default function Page() {
       );
     }
     // video
-    return (
-      <div key={i} className="w-full max-w-[1200px] mx-auto my-8">
-        <video
-          // lazy src: data-lazy-src will be swapped into src when intersecting
-          ref={(el) => (mediaRefs.current[i] = el)}
-          data-lazy-src={m.src}
-          // don't set src initially to keep network idle; set when observer hits
-          preload="metadata"
-          controls
-          playsInline
-          className="w-full h-auto rounded-xl shadow-2xl"
-        />
-        {m.caption && <p className="mt-2 text-sm opacity-80">{m.caption}</p>}
-      </div>
-    );
+return (
+  <div key={i} className="w-full max-w-[1200px] mx-auto my-8">
+    <video
+      // lazy src: data-lazy-src will be swapped into src when intersecting
+      ref={(el) => {
+        if (!mediaRefs.current) mediaRefs.current = [];
+        mediaRefs.current[i] = el;
+      }}
+      data-lazy-src={m.src}
+      // don't set src initially to keep network idle; set when observer hits
+      preload="metadata"
+      controls
+      playsInline
+      className="w-full h-auto rounded-xl shadow-2xl"
+    />
+    {m.caption && <p className="mt-2 text-sm opacity-80">{m.caption}</p>}
+  </div>
+);
   };
 
   return (
