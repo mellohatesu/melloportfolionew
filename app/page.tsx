@@ -20,41 +20,49 @@ const caseStudies: {
     year: "2025",
     description: "A short reel showcasing motion design and logo animations for Kapital. Role: Director / Motion Designer.",
     media: [
-      { type: "video", src: "/projects/Kapital_FINISHED.mp4", caption: "Showreel — full resolution" },
-      { type: "image", src: "/images/kapital_still1.jpg", caption: "Frame study — title card" },
-      { type: "image", src: "/images/kapital_still2.jpg", caption: "Color exploration" },
-      { type: "text", text: "Tools: After Effects, Illustrator, Premiere. Concept, animation, and final color grading done in-house." },
+      { type: "video", src: "/projects/Kapital_FINISHED.mp4", caption: "Full Video" },
+,
+    ],
+  },
+    {
+    id: "project4",
+    title: "Goshi Animated Bumper",
+    year: "2025",
+    description: "Paid media for Goshi, a Japanese self-care company. All illustration done by Ricky Pacas.",
+    media: [
+      { type: "video", src: "/projects/project4.mp4", caption: "Full Video" },
+      { type: "image", src: "/images/goshi-process.gif", caption: "Storyboard" },
+      { type: "image", src: "/images/goshi-process1.png", caption: "Ricky passes me this, I comp it." },
+      { type: "image", src: "/images/goshi-process2.png", caption: "Breakdown of layers" },
     ],
   },
   {
     id: "project2",
-    title: "Project Two",
-    year: "2024",
-    description: "A multimedia project exploring audio-reactive visuals and experimental editing.",
+    title: "CFCF Promotional Bumper",
+    year: "Spring 2025",
+    description: "Animated mobile teaser for CFCF's Memoryland",
     media: [
-      { type: "image", src: "/images/project2_cover.jpg", caption: "Poster" },
-      { type: "video", src: "/projects/project2.mp4", caption: "Behind-the-scenes edit" },
-      { type: "text", text: "Process notes: audio-driven keyframes, time-remapping experiments." },
+       { type: "video", src: "/projects/project2.mp4", caption: "Full Video" }
     ],
   },
   {
     id: "project3",
     title: "Project Three",
-    year: "2023",
-    description: "Short animations and loopable gifs for social channels.",
+    year: "Summer 2025",
+    description: "Audio visual exploration",
     media: [
-      { type: "video", src: "/projects/project3.mp4", caption: "Behind-the-scenes edit" },
+      { type: "video", src: "/projects/project3.mp4", caption: "Full Video" },
       { type: "image", src: "/images/project1-recording.gif", caption: "Keyframe breakdown" },
-      { type: "text", text: "Credits: collaboration with X, Y, Z." },
     ],
   },
 ];
 
 const motionProjects = [
   // you can map these to caseStudies by id
-  { id: "kapital", src: "/projects/Kapital_FINISHED.mp4", title: "Kapital Reel", year: "2025", description: "Short description of project one." },
-  { id: "project2", src: "/projects/project2.mp4", title: "Project Two", year: "2024", description: "Short description of project two." },
-  { id: "project3", src: "/projects/project3.mp4", title: "Project Three", year: "2023", description: "Short description of project three." },
+  { id: "kapital", src: "/projects/Kapital_FINISHED.mp4", title: "Kapital Reel", year: "Spring 2025", description: "Short description of project one." },
+  { id: "project4", src: "/projects/project4.mp4", title: "Goshi Animated Bumper", year: "Fall 2024", description: "Paid media for Goshi, a Japanese self-care company" },
+  { id: "project2", src: "/projects/project2.mp4", title: "CFCF Memoryland Teaser", year: "Spring 2025", description: "" },
+  { id: "project3", src: "/projects/project3.mp4", title: "Elastic", year: "Summer 2025", description: "Audio visual exploration" },
 ];
 
 const titles = ["Designer", "Animator", "Musician"];

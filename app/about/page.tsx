@@ -168,9 +168,9 @@ export default function AboutPage() {
         <h2 className="text-lg tracking-wide uppercase mb-6">Experience</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {[
-            { title: "Creative Intern – Goshi", description: "Managed animated bumpers and motion graphics, 2025" },
-            { title: "Assistant Writer – Dublab", description: "Oversaw website copy and content, 2024" },
-            { title: "Student – School of the Art Institute of Chicago", description: "Undergraduate, Design & Motion, 2021–Present" },
+            { title: "Motion Designer – Quill", description: "Created animated assets and edited social media content, 2025" },
+            { title: "Assistant Writer – The Art Institute of Chicago", description: "Oversaw website copy and content, 2024" },
+            { title: "Student – School of the Art Institute of Chicago", description: "Undergraduate, Design & Motion, 2022–2026" },
           ].map((item, index) => (
             <motion.div
               key={index}
