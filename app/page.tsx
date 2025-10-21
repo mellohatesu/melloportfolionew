@@ -21,7 +21,7 @@ const caseStudies: {
     description: "A short reel showcasing motion design and logo animations for Kapital. Role: Director / Motion Designer.",
     media: [
       { type: "video", src: "/projects/Kapital_FINISHED.mp4", caption: "Full Video" },
-,
+
     ],
   },
     {
