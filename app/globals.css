@@ -27,3 +27,19 @@ body {
   color: var(--foreground);
   font-family: Helvetica, Helvetica, sans-serif;
 }
+
+body.modal-open {
+  background: black !important;
+}
+
+body.modal-open #hero video,
+body.modal-open section#motion video {
+  display: none !important; /* truly unloads the video */
+}
+
+body.modal-open > main > *:not([data-modal-root]) {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  filter: none !important;
+  transition: none !important; /* instant — no fade */
+}

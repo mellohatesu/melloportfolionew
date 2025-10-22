@@ -19,15 +19,12 @@ const caseStudies: {
     title: "Kapital Reel",
     year: "2025",
     description: "A short reel showcasing motion design and logo animations for Kapital. Role: Director / Motion Designer.",
-    media: [
-      { type: "video", src: "/projects/Kapital_FINISHED.mp4", caption: "Full Video" },
-
-    ],
+    media: [{ type: "video", src: "/projects/Kapital_FINISHED.mp4", caption: "Full Video" }],
   },
-    {
+  {
     id: "project4",
     title: "Goshi Animated Bumper",
-    year: "2025",
+    year: "2024",
     description: "Paid media for Goshi, a Japanese self-care company. All illustration done by Ricky Pacas.",
     media: [
       { type: "video", src: "/projects/project4.mp4", caption: "Full Video" },
@@ -41,9 +38,7 @@ const caseStudies: {
     title: "CFCF Promotional Bumper",
     year: "Spring 2025",
     description: "Animated mobile teaser for CFCF's Memoryland",
-    media: [
-       { type: "video", src: "/projects/project2.mp4", caption: "Full Video" }
-    ],
+    media: [{ type: "video", src: "/projects/project2.mp4", caption: "Full Video" }],
   },
   {
     id: "project3",
@@ -58,7 +53,6 @@ const caseStudies: {
 ];
 
 const motionProjects = [
-  // you can map these to caseStudies by id
   { id: "kapital", src: "/projects/Kapital_FINISHED.mp4", title: "Kapital Reel", year: "Spring 2025", description: "Short description of project one." },
   { id: "project4", src: "/projects/project4.mp4", title: "Goshi Animated Bumper", year: "Fall 2024", description: "Paid media for Goshi, a Japanese self-care company" },
   { id: "project2", src: "/projects/project2.mp4", title: "CFCF Memoryland Teaser", year: "Spring 2025", description: "" },
@@ -70,7 +64,6 @@ const typeSpeed = 140;
 const backspaceSpeed = 50;
 const pauseAfterTyping = 1000;
 
-
 export default function Page() {
   const router = useRouter();
   const cursorRef = useRef<HTMLDivElement>(null);
@@ -79,12 +72,20 @@ export default function Page() {
   // modal state
   const [caseStudy, setCaseStudy] = useState<typeof caseStudies[number] | null>(null);
 
-  // typewriter
+  // Typewriter state
   const [displayText, setDisplayText] = useState("");
   const [titleIndex, setTitleIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
 
+  // Refs for pausing/resuming background videos
+  const heroVideoRef = useRef<HTMLVideoElement | null>(null);
+  const gridVideoRefs = useRef<Array<HTMLVideoElement | null>>([]);
+
+  // modal's own media refs (for lazy loading inside modal)
+  const mediaRefs = useRef<Array<HTMLVideoElement | null>>([]);
+
+  // Typewriter effect
   useEffect(() => {
     let timeout: NodeJS.Timeout;
     const handleType = () => {
@@ -113,7 +114,7 @@ export default function Page() {
     return () => clearTimeout(timeout);
   }, [charIndex, isDeleting, titleIndex]);
 
-  // custom cursor
+  // Custom cursor movement
   useEffect(() => {
     const cursor = cursorRef.current;
     if (!cursor) return;
@@ -124,7 +125,7 @@ export default function Page() {
     return () => window.removeEventListener("mousemove", move);
   }, []);
 
-  // hover detection for links to enlarge the cursor
+  // Hover detection for links
   useEffect(() => {
     const links = document.querySelectorAll("a");
     const enter = () => setHovering(true);
@@ -141,12 +142,12 @@ export default function Page() {
     };
   }, []);
 
-  // open case study by project id
+  // Open case study by project id (keeps modal videos unaffected)
   const openCaseStudyFromProject = (projId: string) => {
     const found = caseStudies.find((c) => c.id === projId);
-    if (found) setCaseStudy(found);
-    else {
-      // fallback: create a simple caseStudy from project if not found
+    if (found) {
+      setCaseStudy(found);
+    } else {
       const proj = motionProjects.find((p) => p.id === projId);
       if (proj) {
         setCaseStudy({
@@ -160,7 +161,7 @@ export default function Page() {
     }
   };
 
-  // prevent background scroll and escape to close
+  // Prevent background scroll & Escape to close
   useEffect(() => {
     if (!caseStudy) return;
     const prev = document.body.style.overflow;
@@ -175,8 +176,19 @@ export default function Page() {
     };
   }, [caseStudy]);
 
-  // helper: media refs & intersection observer for autoplay & lazy load
-  const mediaRefs = useRef<Array<HTMLVideoElement | null>>([]);
+  // Pause hero + grid videos when modal opens, resume when closes
+  useEffect(() => {
+    if (caseStudy) {
+      heroVideoRef.current?.pause();
+      gridVideoRefs.current.forEach((v) => v?.pause());
+    } else {
+      // attempt to resume; catch autoplay blocks
+      heroVideoRef.current?.play().catch(() => {});
+      gridVideoRefs.current.forEach((v) => v?.play().catch(() => {}));
+    }
+  }, [caseStudy]);
+
+  // Helper: media refs & intersection observer for autoplay & lazy load inside modal
   useEffect(() => {
     if (!caseStudy) return;
 
@@ -188,13 +200,10 @@ export default function Page() {
           const el = entry.target as HTMLVideoElement;
           if (!el) return;
           if (entry.isIntersecting) {
-            // autoplay when sufficiently visible
             if (el.dataset.lazySrc && !el.getAttribute("src")) {
               el.setAttribute("src", el.dataset.lazySrc);
             }
-            el.play().catch(() => {
-              /* autoplay might be blocked; user can press play */
-            });
+            el.play().catch(() => {});
           } else {
             el.pause();
           }
@@ -210,7 +219,7 @@ export default function Page() {
     return () => io.disconnect();
   }, [caseStudy]);
 
-  // render media items
+  // render media items (modal content)
   const renderMedia = (m: MediaItem, i: number) => {
     if (m.type === "text") {
       return (
@@ -235,25 +244,28 @@ export default function Page() {
         </div>
       );
     }
-    // video
-return (
-  <div key={i} className="w-full max-w-[1200px] mx-auto my-8">
-    <video
-      // lazy src: data-lazy-src will be swapped into src when intersecting
-      ref={(el) => {
-        if (!mediaRefs.current) mediaRefs.current = [];
-        mediaRefs.current[i] = el;
-      }}
-      data-lazy-src={m.src}
-      // don't set src initially to keep network idle; set when observer hits
-      preload="metadata"
-      controls
-      playsInline
-      className="w-full h-auto rounded-xl shadow-2xl"
-    />
-    {m.caption && <p className="mt-2 text-sm opacity-80">{m.caption}</p>}
-  </div>
-);
+    // video inside modal (use data-lazy-src so we don't fetch until modal opened/intersecting)
+    return (
+      <div key={i} className="w-full max-w-[1200px] mx-auto my-8">
+        <video
+          ref={(el) => {
+            if (!mediaRefs.current) mediaRefs.current = [];
+            mediaRefs.current[i] = el;
+          }}
+          data-lazy-src={m.src}
+          preload="metadata"
+          controls
+          playsInline
+          className="w-full h-auto rounded-xl shadow-2xl"
+        />
+        {m.caption && <p className="mt-2 text-sm opacity-80">{m.caption}</p>}
+      </div>
+    );
+  };
+
+  // helper to assign refs for grid videos
+  const assignGridRef = (el: HTMLVideoElement | null, idx: number) => {
+    gridVideoRefs.current[idx] = el;
   };
 
   return (
@@ -264,7 +276,7 @@ return (
       exit={{ opacity: 0, y: -20, transition: { duration: 0.5, ease: "easeInOut" } }}
       className="relative min-h-screen bg-[#111111] text-white"
     >
-      {/* cursor */}
+      {/* custom cursor */}
       <div
         ref={cursorRef}
         className={`pointer-events-none fixed top-0 left-0 rounded-full mix-blend-difference transition-all duration-150 ease-out ${hovering ? "w-8 h-8" : "w-4 h-4"}`}
@@ -273,8 +285,16 @@ return (
 
       {/* hero */}
       <section id="hero" className="relative w-full h-screen flex flex-col items-center justify-center overflow-hidden bg-[#212121] text-white">
-        {/* background video */}
-        <video className="absolute inset-0 w-full h-full object-cover z-0" src="/hero.mp4" autoPlay loop muted playsInline />
+        {/* background video (heroRef) */}
+        <video
+          ref={heroVideoRef}
+          className="absolute inset-0 w-full h-full object-cover z-0"
+          src="/hero.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+        />
 
         <h1 className="relative z-10 text-5xl md:text-6xl lg:text-7xl font-bold mb-6">Mello Ige</h1>
 
@@ -293,20 +313,38 @@ return (
       {/* nav */}
       <nav className="fixed top-6 right-6 z-50 text-sm uppercase tracking-wide flex gap-6 text-white">
         {["motion", "writing"].map((sec) => (
-          <a key={sec} onClick={() => document.getElementById(sec) && document.getElementById(sec)!.scrollIntoView({ behavior: "smooth", block: "start" })} className="transition-transform duration-300 hover:scale-110 cursor-pointer relative">
+          <a
+            key={sec}
+            onClick={() => document.getElementById(sec) && document.getElementById(sec)!.scrollIntoView({ behavior: "smooth", block: "start" })}
+            className="transition-transform duration-300 hover:scale-110 cursor-pointer relative"
+          >
             {sec.charAt(0).toUpperCase() + sec.slice(1)}
           </a>
         ))}
-        <Link href="/about" className="transition-transform duration-300 hover:scale-110 cursor-pointer relative">About</Link>
+        <Link href="/about" className="transition-transform duration-300 hover:scale-110 cursor-pointer relative">
+          About
+        </Link>
       </nav>
 
       {/* projects grid */}
       <section id="motion" className="p-10">
         <h2 className="text-2xl sm:text-3xl mb-6 text-center">Selected Motion Work</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {motionProjects.map((proj) => (
-            <div key={proj.id} onClick={() => openCaseStudyFromProject(proj.id)} className="relative aspect-video overflow-hidden transform transition duration-300 hover:scale-105 hover:-translate-y-2 hover:shadow-2xl cursor-pointer">
-              <video className="w-full h-full object-cover" src={proj.src} autoPlay loop muted playsInline />
+          {motionProjects.map((proj, idx) => (
+            <div
+              key={proj.id}
+              onClick={() => openCaseStudyFromProject(proj.id)}
+              className="relative aspect-video overflow-hidden transform transition duration-300 hover:scale-105 hover:-translate-y-2 hover:shadow-2xl cursor-pointer"
+            >
+              <video
+                ref={(el) => assignGridRef(el, idx)}
+                className="w-full h-full object-cover"
+                src={proj.src}
+                autoPlay
+                loop
+                muted
+                playsInline
+              />
               <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black/70 to-transparent p-4 opacity-0 hover:opacity-100 transition-opacity duration-300">
                 <div className="text-white">
                   <h3 className="text-lg font-semibold">{proj.title}</h3>
@@ -327,13 +365,13 @@ return (
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.98 }}
             transition={{ duration: 0.35, ease: "easeInOut" }}
-            className="fixed inset-0 z-50 flex items-center justify-center"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm"
             aria-modal="true"
             role="dialog"
             data-modal-root
           >
-            {/* soft frosted backdrop */}
-            <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" onClick={() => setCaseStudy(null)} />
+            {/* backdrop clickable to close */}
+            <div className="absolute inset-0" onClick={() => setCaseStudy(null)} />
 
             {/* fullscreen modal content */}
             <div className="relative z-60 w-full h-full overflow-hidden">

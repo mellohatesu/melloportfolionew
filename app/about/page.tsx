@@ -157,7 +157,7 @@ export default function AboutPage() {
             </div>
             <div className="w-full md:w-1/2 text-base leading-relaxed space-y-6">
               <p>I’m a multidisciplinary designer, developer, motion artist, and composer specializing in After Effects, Illustrator, and FL Studio. I create visually engaging experiences that blend design, animation, and music.</p>
-              <p>Currently pursuing my undergraduate degree at the School of the Art Institute of Chicagos, I’ve been self-teaching design since age 16, inspired by video games and anime. I specialize in post-production and have a particular strength in logo animation. I thrive on projects that challenge me to think outside the box and combine multiple mediums.</p>
+              <p>Currently pursuing my undergraduate degree at the School of the Art Institute of Chicago, I’ve been self-teaching design since age 16, inspired by video games and anime. I specialize in post-production and have a particular strength in logo animation. I thrive on projects that challenge me to think outside the box and combine multiple mediums.</p>
             </div>
           </div>
         </div>
@@ -191,7 +191,13 @@ export default function AboutPage() {
         <h2 className="text-lg tracking-wide uppercase mb-6">Gallery</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {galleryImages.map((_, i) => (
-            <div key={i} className="relative aspect-[4/5] overflow-hidden rounded-xl bg-neutral-800" />
+            <div key={i} className="relative aspect-[4/5] overflow-hidden rounded-xl">
+  <img
+    src={galleryImages[i]}
+    alt={`Gallery photo ${i + 1}`}
+    className="w-full h-full object-cover"
+  />
+</div>
           ))}
         </div>
       </section>
