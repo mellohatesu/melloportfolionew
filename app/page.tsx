@@ -53,12 +53,22 @@ const caseStudies: {
   },
   {
     id: "project3",
-    title: "Project Three",
+    title: "Elastic",
     year: "Summer 2025",
     description: "Audio visual exploration",
     media: [
       { type: "video", src: "/projects/project3.mp4", caption: "Full Video" },
       { type: "image", src: "/images/project1-recording.gif", caption: "Keyframe breakdown" },
+    ],
+  },
+    {
+    id: "project5",
+    title: "Type Animation",
+    year: "Evergreen",
+    description: "Different animations focusing on typography",
+    media: [
+      { type: "video", src: "/projects/NameForPortfolio.mp4", caption: "Name animation"},
+      { type: "video", src: "/projects/Quill_LogoAnimationFinal1.mp4", caption: "Animation for Quill client" },
     ],
   },
 ];
@@ -69,6 +79,7 @@ const motionProjects = [
   { id: "project4", src: "/projects/project4.mp4", title: "Goshi Animated Bumper", year: "Fall 2024", description: "Paid media for Goshi, a Japanese self-care company" },
   { id: "project2", src: "/projects/project2.mp4", title: "CFCF Memoryland Teaser", year: "Spring 2025", description: "" },
   { id: "project3", src: "/projects/project3.mp4", title: "Elastic", year: "Summer 2025", description: "Audio visual exploration" },
+  { id: "project5", src: "/projects/NameForPortfolio.mp4", title: "Type animations", year: "2025", description: "Typography animation" },
 ];
 
 const titles = ["Designer", "Animator", "Musician"];
