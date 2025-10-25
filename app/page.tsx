@@ -14,6 +14,17 @@ const caseStudies: {
   description?: string;
   media: MediaItem[];
 }[] = [
+    {
+    id: "YAACO",
+    title: "You, and a Couple Others (WIP)",
+    year: "2025",
+    description: "Work in progress on an upcoming shortfilm.",
+    media: [
+      { type: "video", src: "/projects/Welcome.mp4", caption: "Welcome screen" },
+      { type: "video", src: "/projects/3DGrid.mp4", caption: "Expression exploration" },
+      { type: "video", src: "/projects/GAMEON.mp4", caption: "Game on!" },
+    ],
+  },
   {
     id: "kapital",
     title: "Kapital Reel",
@@ -53,7 +64,8 @@ const caseStudies: {
 ];
 
 const motionProjects = [
-  { id: "kapital", src: "/projects/Kapital_FINISHED.mp4", title: "Kapital Reel", year: "Spring 2025", description: "Short description of project one." },
+  { id: "YAACO", src: "/projects/Welcome.mp4", title: "You, and a couple others (WIP)", year: "Fall 2025", description: "Short film WIP" },
+  { id: "kapital", src: "/projects/Kapital_FINISHED.mp4", title: "Kapital Reel", year: "Spring 2025", description: "Kapital Informational Video" },
   { id: "project4", src: "/projects/project4.mp4", title: "Goshi Animated Bumper", year: "Fall 2024", description: "Paid media for Goshi, a Japanese self-care company" },
   { id: "project2", src: "/projects/project2.mp4", title: "CFCF Memoryland Teaser", year: "Spring 2025", description: "" },
   { id: "project3", src: "/projects/project3.mp4", title: "Elastic", year: "Summer 2025", description: "Audio visual exploration" },
