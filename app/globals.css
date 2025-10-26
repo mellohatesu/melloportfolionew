@@ -1,3 +1,4 @@
+@import url("https://api.fontshare.com/css?f[]=satoshi@400,500,700&display=swap");
 @import "tailwindcss";
 @tailwind base;
 @tailwind components;
@@ -6,13 +7,14 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+    --font-sans: "Satoshi", -apple-system, BlinkMacSystemFont, Helvetica, sans-serif;
+    --font-mono: var(--font-geist-mono);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
 }
 
 @media (prefers-color-scheme: dark) {
@@ -25,7 +27,7 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Helvetica, Helvetica, sans-serif;
+  font-family: var(--font-sans);
 }
 
 body.modal-open {
