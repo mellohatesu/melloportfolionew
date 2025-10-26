@@ -156,8 +156,9 @@ export default function AboutPage() {
               <img src="/about/header.gif" alt="Animated portrait" className="w-full h-auto rounded-2xl object-cover" />
             </div>
             <div className="w-full md:w-1/2 text-base leading-relaxed space-y-6">
-              <p>I’m a multidisciplinary designer, developer, motion artist, and composer specializing in After Effects, Illustrator, and FL Studio. I create visually engaging experiences that blend design, animation, and music.</p>
-              <p>Currently pursuing my undergraduate degree at the School of the Art Institute of Chicago, I’ve been self-teaching design since age 16, inspired by video games and anime. I specialize in post-production and have a particular strength in logo animation. I thrive on projects that challenge me to think outside the box and combine multiple mediums.</p>
+              <p>I’m a multidisciplinary artist based in Chicago, working as a motion graphics designer for the past two years. I’m currently pursuing my BFA at the School of the Art Institute of Chicago with a focus in Visual Communication.</p>
+              <p>From corporate work at Quill to freelance collaborations with Goshi, I’ve had the opportunity to refine my craft across a range of clients — always showing up as a reliable creative partner and pushing for thoughtful, unexpected visual solutions.</p>
+              <p>Outside of motion design, I produce electronic music, DJ nationally, and freelance as an editorial writer for local culture publications.</p>
             </div>
           </div>
         </div>
