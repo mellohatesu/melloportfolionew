@@ -33,7 +33,7 @@ export default function AboutPage() {
   useEffect(() => {
     const initParticles: KaomojiParticle[] = Array.from({ length: 12 }, (_, i) => ({
       id: i,
-      x: Math.random() * 10, // left side
+      x: Math.random() * 10,
       y: Math.random() * 70 + 5,
       char: kaomojis[Math.floor(Math.random() * kaomojis.length)],
       size: 16 + Math.random() * 12,
@@ -42,7 +42,7 @@ export default function AboutPage() {
     })).concat(
       Array.from({ length: 12 }, (_, i) => ({
         id: i + 12,
-        x: 90 + Math.random() * 10, // right side
+        x: 90 + Math.random() * 10,
         y: Math.random() * 70 + 5,
         char: kaomojis[Math.floor(Math.random() * kaomojis.length)],
         size: 16 + Math.random() * 12,
@@ -79,7 +79,7 @@ export default function AboutPage() {
       setParticles((prev) =>
         prev.map((p) => {
           const bounce = Math.sin(time / 300 + p.phase) * p.bounceHeight;
-          const offsetX = Math.sin(time / 1000 + p.phase) * 2; // subtle horizontal wiggle
+          const offsetX = Math.sin(time / 1000 + p.phase) * 2;
           return { ...p, offsetX, bounce };
         })
       );
@@ -156,9 +156,9 @@ export default function AboutPage() {
               <img src="/about/header.gif" alt="Animated portrait" className="w-full h-auto rounded-2xl object-cover" />
             </div>
             <div className="w-full md:w-1/2 text-base leading-relaxed space-y-6">
-              <p>I’m a multidisciplinary artist based in Chicago, working as a motion graphics designer for the past two years. I’m currently pursuing my BFA at the School of the Art Institute of Chicago with a focus in Visual Communication.</p>
-              <p>From corporate work at Quill to freelance collaborations with Goshi, I’ve had the opportunity to refine my craft across a range of clients — always showing up as a reliable creative partner and pushing for thoughtful, unexpected visual solutions.</p>
-              <p>Outside of motion design, I produce electronic music, DJ nationally, and freelance as an editorial writer for local culture publications.</p>
+              <p>I'm a multi-disciplinary artist based out of Chicago where I have been working as a motion graphic artists for the last two years. I'm currently pursuing my BFA from The School of the art Institute of Chicago, with a focus in visual communcation. </p>
+              <p>From corporate work at Quill, to freelance work with Goshi, I've had the opportunity to enhance my craft and work with a multitude of clients. I always aim to be dependable with any team I work with, trying to find unique angles to approach with any client.  </p>
+              <p>Outside of motion design I spend my time making electronic music, DJing around the country, and freelancing as an editorial writer for local outlets.    </p>
             </div>
           </div>
         </div>
@@ -187,18 +187,45 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Gallery Section */}
+      {/* Favorites Section */}
       <section className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 py-12">
+        <h2 className="text-lg tracking-wide uppercase mb-6">Favorites ✧</h2>
+        
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+          {[
+            { label: "Favorite Movie", value: "The Social Network", emoji: "" },
+            { label: "Favorite Manga", value: "Steel Ball Run (JJBA Part 7)", emoji: "" },
+            { label: "Favorite Album", value: "The Ooz - King Krule", emoji: "" },
+            { label: "Favorite Food", value: "Chicken Katsu Curry", emoji: "" },
+          ].map((item, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6, delay: index * 0.15 }}
+              className="bg-[#f9f9f9] dark:bg-[#1a1a1a] rounded-2xl p-8 flex flex-col items-start justify-between shadow-md hover:shadow-xl transition-shadow duration-300 cursor-default"
+            >
+              <span className="text-sm font-semibold opacity-70 flex items-center gap-2">
+                {item.emoji} {item.label}
+              </span>
+              <p className="text-lg font-medium mt-2">{item.value}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+       {/* Gallery Section */}  <section className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 py-12">
         <h2 className="text-lg tracking-wide uppercase mb-6">Gallery</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {galleryImages.map((_, i) => (
             <div key={i} className="relative aspect-[4/5] overflow-hidden rounded-xl">
-  <img
-    src={galleryImages[i]}
-    alt={`Gallery photo ${i + 1}`}
-    className="w-full h-full object-cover"
-  />
-</div>
+              <img
+                src={galleryImages[i]}
+                alt={`Gallery photo ${i + 1}`}
+                className="w-full h-full object-cover"
+              />
+            </div>
           ))}
         </div>
       </section>
