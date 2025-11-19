@@ -21,6 +21,7 @@ const caseStudies: {
     description: "Work in progress on an upcoming shortfilm.",
     media: [
       { type: "video", src: "/projects/Welcome.mp4", caption: "Welcome screen" },
+      { type: "video", src: "/projects/animationBreakdown.mp4", caption: "Animation building" },
       { type: "video", src: "/projects/3DGrid.mp4", caption: "Expression exploration" },
       { type: "video", src: "/projects/GAMEON.mp4", caption: "Game on!" },
     ],
