@@ -34,6 +34,13 @@ const caseStudies: {
     media: [{ type: "video", src: "/projects/Kapital_FINISHED.mp4", caption: "Full Video" }],
   },
   {
+    id: "elektron",
+    title: "Elektron bumper",
+    year: "2025",
+    description: "A short reel showcasing motion design and logo animations for Elektron",
+    media: [{ type: "video", src: "/projects/Elektron_Wideversion.mp4", caption: "Full Video" }],
+  },
+  {
     id: "project4",
     title: "Goshi Animated Bumper",
     year: "2024",
@@ -77,6 +84,7 @@ const caseStudies: {
 const motionProjects = [
   { id: "YAACO", src: "/projects/Welcome.mp4", title: "You, and a couple others (WIP)", year: "Fall 2025", description: "Short film WIP" },
   { id: "kapital", src: "/projects/Kapital_FINISHED.mp4", title: "Kapital Reel", year: "Spring 2025", description: "Kapital Informational Video" },
+  { id: "elektron", src: "/projects/Elektron_Wideversion.mp4", title: "Elektron bumper", year: "Fall 2025", description: "Short ad for Elektron" },
   { id: "project4", src: "/projects/project4.mp4", title: "Goshi Animated Bumper", year: "Fall 2024", description: "Paid media for Goshi, a Japanese self-care company" },
   { id: "project2", src: "/projects/project2.mp4", title: "CFCF Memoryland Teaser", year: "Spring 2025", description: "" },
   { id: "project3", src: "/projects/project3.mp4", title: "Elastic", year: "Summer 2025", description: "Audio visual exploration" },
