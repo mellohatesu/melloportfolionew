@@ -158,7 +158,7 @@ export default function AboutPage() {
             <div className="w-full md:w-1/2 text-base leading-relaxed space-y-6">
               <p>I'm a multi-disciplinary artist based out of Chicago where I have been working as a motion graphic artists for the last two years. I'm currently pursuing my BFA from The School of the art Institute of Chicago, with a focus in visual communcation. </p>
               <p>From corporate work at Quill, to freelance work with Goshi, I've had the opportunity to enhance my craft and work with a multitude of clients. I always aim to be dependable with any team I work with, trying to find unique angles to approach with any client.  </p>
-              <p>Outside of motion design I spend my time making electronic music, DJing around the country, and freelancing as an editorial writer for local outlets.    </p>
+              <p>Outside of motion design I spend my time making electronic music, DJing around the country, and freelancing as an editorial writer for local outlets.     </p>
             </div>
           </div>
         </div>
