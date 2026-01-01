@@ -5,7 +5,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
-type MediaItem = { type: "image" | "video" | "text"; src?: string; caption?: string; text?: string };
+type MediaItem =
+  | { type: "image"; src: string; caption?: string }
+  | { type: "video"; src: string; caption?: string }
+  | { type: "vimeo"; vimeoId: string; caption?: string }
+  | { type: "text"; text: string };
+
 
 const caseStudies: {
   id: string;
@@ -40,6 +45,19 @@ const caseStudies: {
     description: "A short reel showcasing motion design and logo animations for Elektron",
     media: [{ type: "video", src: "/projects/Elektron_Wideversion.mp4", caption: "Full Video" }],
   },
+{
+  id: "Townhall",
+  title: "Quill End of Year 2025 Recap",
+  year: "2025",
+  description: "End of year video for Quill.",
+  media: [
+    {
+      type: "vimeo",
+      vimeoId: "1150879905", // replace with your actual Vimeo ID
+      caption: "Quill Townhall Video",
+    },
+  ],
+},
   {
     id: "project4",
     title: "Goshi Animated Bumper",
@@ -85,6 +103,7 @@ const motionProjects = [
   { id: "YAACO", src: "/projects/Welcome.mp4", title: "You, and a couple others (WIP)", year: "Fall 2025", description: "Short film WIP" },
   { id: "kapital", src: "/projects/Kapital_FINISHED.mp4", title: "Kapital Reel", year: "Spring 2025", description: "Kapital Informational Video" },
   { id: "elektron", src: "/projects/Elektron_Wideversion.mp4", title: "Elektron bumper", year: "Fall 2025", description: "Short ad for Elektron" },
+  { id: "Townhall", src: "/projects/TownhallVid_WithEditsCompressed.mp4", title: "Quill End of year recap", year: "Winter 2025", description: "Recap video for internal design at Quill"},
   { id: "project4", src: "/projects/project4.mp4", title: "Goshi Animated Bumper", year: "Fall 2024", description: "Paid media for Goshi, a Japanese self-care company" },
   { id: "project3", src: "/projects/project3.mp4", title: "Elastic", year: "Summer 2025", description: "Audio visual exploration" },
   { id: "project5", src: "/projects/NameForPortfolio.mp4", title: "Type animations", year: "2025", description: "Typography animation" },
@@ -253,6 +272,22 @@ export default function Page() {
 
   // render media items (modal content)
   const renderMedia = (m: MediaItem, i: number) => {
+    if (m.type === "vimeo") {
+  return (
+    <div key={i} className="w-full max-w-[1200px] mx-auto my-8">
+      <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-2xl">
+        <iframe
+          src={`https://player.vimeo.com/video/${m.vimeoId}?autoplay=1&title=0&byline=0&portrait=0`}
+          className="absolute inset-0 w-full h-full"
+          frameBorder="0"
+          allow="autoplay; fullscreen; picture-in-picture"
+          allowFullScreen
+        />
+      </div>
+      {m.caption && <p className="mt-2 text-sm opacity-80">{m.caption}</p>}
+    </div>
+  );
+}
     if (m.type === "text") {
       return (
         <div key={i} className="w-full max-w-[1200px] mx-auto my-8">
