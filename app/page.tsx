@@ -36,14 +36,22 @@ const caseStudies: {
     title: "Kapital Reel",
     year: "2025",
     description: "A short reel showcasing motion design and logo animations for Kapital. Role: Director / Motion Designer.",
-    media: [{ type: "video", src: "/projects/Kapital_FINISHED.mp4", caption: "Full Video" }],
+    media: [{
+      type: "vimeo",
+      vimeoId: "1160322849", // replace with your actual Vimeo ID
+      caption: "Kapital Reel",
+    }],
   },
   {
     id: "elektron",
     title: "Elektron bumper",
     year: "2025",
-    description: "A short reel showcasing motion design and logo animations for Elektron",
-    media: [{ type: "video", src: "/projects/Elektron_Wideversion.mp4", caption: "Full Video" }],
+    description: "A short reel showcasing motion design and logo animations for Elektron. Original sound by me.",
+    media: [{
+      type: "vimeo",
+      vimeoId: "1160322961", // replace with your actual Vimeo ID
+      caption: "Elektron Bumper",
+    }],
   },
 {
   id: "Townhall",
@@ -75,7 +83,11 @@ const caseStudies: {
     title: "CFCF Promotional Bumper",
     year: "Spring 2025",
     description: "Animated mobile teaser for CFCF's Memoryland",
-    media: [{ type: "video", src: "/projects/project2.mp4", caption: "Full Video" }],
+    media: [{
+      type: "vimeo",
+      vimeoId: "1160322870", // replace with your actual Vimeo ID
+      caption: "Promotional video for CFCF's Memoryland",
+    }],
   },
   {
     id: "project3",
@@ -86,7 +98,7 @@ const caseStudies: {
       {
       type: "vimeo",
       vimeoId: "1160322882", // replace with your actual Vimeo ID
-      caption: "Quill Townhall Video",
+      caption: "Elastic.",
     },
       { type: "image", src: "/images/project1-recording.gif", caption: "Keyframe breakdown" },
     ],
