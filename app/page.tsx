@@ -83,7 +83,11 @@ const caseStudies: {
     year: "Summer 2025",
     description: "Audio visual exploration",
     media: [
-      { type: "video", src: "/projects/project3.mp4", caption: "Full Video" },
+      {
+      type: "vimeo",
+      vimeoId: "1160322882", // replace with your actual Vimeo ID
+      caption: "Quill Townhall Video",
+    },
       { type: "image", src: "/images/project1-recording.gif", caption: "Keyframe breakdown" },
     ],
   },
