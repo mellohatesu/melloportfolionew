@@ -25,10 +25,26 @@ const caseStudies: {
     year: "2025",
     description: "Work in progress on an upcoming shortfilm.",
     media: [
-      { type: "video", src: "/projects/Welcome.mp4", caption: "Welcome screen" },
-      { type: "video", src: "/projects/animationBreakdown.mp4", caption: "Animation building" },
-      { type: "video", src: "/projects/3DGrid.mp4", caption: "Expression exploration" },
-      { type: "video", src: "/projects/GAMEON.mp4", caption: "Game on!" },
+      {
+      type: "vimeo",
+      vimeoId: "1160322923", // replace with your actual Vimeo ID
+      caption: "You and a Couple Others.",
+    },
+      {
+      type: "vimeo",
+      vimeoId: "1160322944", // replace with your actual Vimeo ID
+      caption: "Animation breakdown",
+    },
+      {
+      type: "vimeo",
+      vimeoId: "1160322935", // replace with your actual Vimeo ID
+      caption: "Expression exploration",
+    },
+      {
+      type: "vimeo",
+      vimeoId: "1160322835", // replace with your actual Vimeo ID
+      caption: "Game on!",
+    },
     ],
   },
   {
@@ -72,7 +88,11 @@ const caseStudies: {
     year: "2024",
     description: "Paid media for Goshi, a Japanese self-care company. All illustration done by Ricky Pacas.",
     media: [
-      { type: "video", src: "/projects/project4.mp4", caption: "Full Video" },
+      {
+      type: "vimeo",
+      vimeoId: "1160322890", // replace with your actual Vimeo ID
+      caption: "Bumper for Goshi",
+    },
       { type: "image", src: "/images/goshi-process.gif", caption: "Storyboard" },
       { type: "image", src: "/images/goshi-process1.png", caption: "Ricky passes me this, I comp it." },
       { type: "image", src: "/images/goshi-process2.png", caption: "Breakdown of layers" },
@@ -109,7 +129,11 @@ const caseStudies: {
     year: "Evergreen",
     description: "Different animations focusing on typography",
     media: [
-      { type: "video", src: "/projects/NameForPortfolio.mp4", caption: "Name animation"},
+      {
+      type: "vimeo",
+      vimeoId: "1160322860", // replace with your actual Vimeo ID
+      caption: "Personal name animation",
+    },
       { type: "video", src: "/projects/Quill_LogoAnimationFinal1.mp4", caption: "Animation for Quill client" },
     ],
   },
