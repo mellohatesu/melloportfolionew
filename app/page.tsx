@@ -143,7 +143,7 @@ const motionProjects = [
   { id: "YAACO", src: "/projects/Welcome.mp4", title: "You, and a couple others (WIP)", year: "Fall 2025", description: "Short film WIP" },
   { id: "kapital", src: "/projects/Kapital_FINISHED.mp4", title: "Kapital Reel", year: "Spring 2025", description: "Kapital Informational Video" },
   { id: "elektron", src: "/projects/Elektron_Wideversion.mp4", title: "Elektron bumper", year: "Fall 2025", description: "Short ad for Elektron" },
-  { id: "Townhall", src: "/projects/TownhallVid_Witheditscompressed.mp4", title: "Quill End of year recap", year: "Winter 2025", description: "Recap video for internal design at Quill"},
+  { id: "Townhall", src: "/projects/Townhallvid_Witheditscompressed.mp4", title: "Quill End of year recap", year: "Winter 2025", description: "Recap video for internal design at Quill"},
   { id: "project4", src: "/projects/project4.mp4", title: "Goshi Animated Bumper", year: "Fall 2024", description: "Paid media for Goshi, a Japanese self-care company" },
   { id: "project3", src: "/projects/project3.mp4", title: "Elastic", year: "Summer 2025", description: "Audio visual exploration" },
   { id: "project5", src: "/projects/NameForPortfolio.mp4", title: "Type animations", year: "2025", description: "Typography animation" },
