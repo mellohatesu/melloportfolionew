@@ -31,7 +31,7 @@ const caseStudies: {
       caption: "Party at my Place",
     },,
     ],
-  }
+  },
     {
     id: "YAACO",
     title: "You, and a Couple Others (WIP)",
