@@ -23,13 +23,13 @@ const caseStudies: {
     id: "PamP",
     title: "Party at my Place",
     year: "2026",
-    description: "Fun visualizer for Xaviersobased song",
+    description: "Fun visualizer for Xaviersobased song.",
     media: [
       {
       type: "vimeo",
       vimeoId: "1167972742", // replace with your actual Vimeo ID
       caption: "Party at my Place",
-    },,
+    },
     ],
   },
     {
