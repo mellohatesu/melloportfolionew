@@ -30,6 +30,7 @@ const caseStudies: {
       vimeoId: "1167972742", // replace with your actual Vimeo ID
       caption: "Party at my Place",
     },
+    { type: "image", src: "/images/XavInsights", caption: "Instagram Insights" }
     ],
   },
     {
