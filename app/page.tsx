@@ -19,6 +19,19 @@ const caseStudies: {
   description?: string;
   media: MediaItem[];
 }[] = [
+      {
+    id: "PamP",
+    title: "Party at my Place",
+    year: "2026",
+    description: "Fun visualizer for Xaviersobased song",
+    media: [
+      {
+      type: "vimeo",
+      vimeoId: "1167972742", // replace with your actual Vimeo ID
+      caption: "Party at my Place",
+    },,
+    ],
+  }
     {
     id: "YAACO",
     title: "You, and a Couple Others (WIP)",
@@ -140,6 +153,7 @@ const caseStudies: {
 ];
 
 const motionProjects = [
+  { id: "PamP", src: "/projects/Previewparty(1).mp4", title: "Party at my Place visualizer", year: "Spring 2026", description: "Party at my Place visualizer" },
   { id: "YAACO", src: "/projects/Welcome.mp4", title: "You, and a couple others (WIP)", year: "Fall 2025", description: "Short film WIP" },
   { id: "kapital", src: "/projects/Kapital_FINISHED.mp4", title: "Kapital Reel", year: "Spring 2025", description: "Kapital Informational Video" },
   { id: "elektron", src: "/projects/Elektron_Wideversion.mp4", title: "Elektron bumper", year: "Fall 2025", description: "Short ad for Elektron" },
