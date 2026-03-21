@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mello Ige — Motion Designer</title>
+  <meta name="description" content="Mello Ige — Motion Designer based in Chicago. Brand identity, 3D animation, UI motion, film.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- CURSOR -->
+  <div class="cur"  id="cur"></div>
+  <div class="cur2" id="cur2"></div>
+
+  <!-- DYNAMIC ISLAND -->
+  <div id="island">
+    <div class="i-dot"></div>
+    <span class="i-default">MELLO.IGE ✦ CHICAGO</span>
+    <div class="i-exp">
+      <div>
+        <div class="i-text">Currently Available</div>
+        <div class="i-sub">OPEN TO WORK · CHICAGO IL</div>
+      </div>
+      <div class="i-bars">
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#home" class="nav-logo">Mello Ige</a>
+    <ul class="nav-links">
+      <li><a href="#work">WORK</a></li>
+      <li><a href="#about">ABOUT</a></li>
+      <li><a href="#contact">CONTACT</a></li>
+    </ul>
+    <button class="nav-ham" id="navHam" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="nav-drawer" id="navDrawer">
+    <a href="#work"    onclick="closeNav()">WORK</a>
+    <a href="#about"   onclick="closeNav()">ABOUT</a>
+    <a href="#contact" onclick="closeNav()">CONTACT</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="wrap">
+      <p class="hero-label rev">MOTION DESIGNER — CHICAGO, IL — BFA SAIC 2026</p>
+      <h1 class="hero-h1 rev">MELLO<br><span class="dim">IGE.</span></h1>
+      <p class="hero-desc rev">
+        Multi-disciplinary artist making things move.<br>
+        <strong>Brand identity. 3D. UI animation. Film.</strong><br>
+        Where precision meets controlled chaos.
+      </p>
+      <div class="hero-cta rev">
+        <a href="#work"    class="btn btn-s">View Work ↗</a>
+        <a href="#about"   class="btn btn-g">About</a>
+      </div>
+      <div class="hero-bubbles rev">
+        <div class="hbub"   style="animation-delay:.15s">(˘ω˘) GLHF!</div>
+        <div class="hbub r" style="animation-delay:.35s">currently cooking ✦</div>
+        <div class="hbub"   style="animation-delay:.55s">ദ്ദി(˵•̀ᴗ-˵)✧</div>
+        <div class="hbub r" style="animation-delay:.75s">open for work ✓</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="rule"></div>
+
+  <!-- WORK -->
+  <section class="sec" id="work">
+    <p class="sec-label rev">01 — SELECTED WORK</p>
+    <h2 class="sec-title rev">Projects.</h2>
+    <div class="pg">
+
+      <a class="p p-feat rev" href="#" onclick="openM(0); return false;">
+        <div class="p-img">
+          <img  class="p-cover" src="img/cs2-cover.jpg"  alt="CS2 Weapon Skin">
+          <video class="p-loop" src="img/cs2-loop.mp4"   muted loop playsinline preload="none"></video>
+          <div class="p-sweep"></div>
+        </div>
+        <div class="p-body">
+          <div>
+            <div class="p-tags"><span class="ptag">3D</span><span class="ptag">GAMING</span><span class="ptag">MOTION</span></div>
+            <div class="p-title">CS2 Weapon Skin</div>
+            <div class="p-meta-line">CONCEPT — 2024</div>
+          </div>
+          <div class="p-arrow">↗</div>
+        </div>
+      </a>
+
+      <a class="p rev" href="#" onclick="openM(1); return false;">
+        <div class="p-img">
+          <img  class="p-cover" src="img/party-cover.png"  alt="Party at my Place">
+          <video class="p-loop" src="img/party-loop.mp4"   muted loop playsinline preload="none"></video>
+          <div class="p-sweep"></div>
+        </div>
+        <div class="p-body">
+          <div>
+            <div class="p-tags"><span class="ptag">MUSIC VIDEO</span><span class="ptag">MOTION</span></div>
+            <div class="p-title">Party at my Place</div>
+            <div class="p-meta-line">ANIMATED MV — 2026</div>
+          </div>
+          <div class="p-arrow">↗</div>
+        </div>
+      </a>
+
+      <a class="p rev" href="#" onclick="openM(2); return false;">
+        <div class="p-img">
+          <img  class="p-cover" src="img/elektron-cover.jpg"  alt="Elektron">
+          <video class="p-loop" src="img/elektron-loop.mp4"   muted loop playsinline preload="none"></video>
+          <div class="p-sweep"></div>
+        </div>
+        <div class="p-body">
+          <div>
+            <div class="p-tags"><span class="ptag">UI MOTION</span><span class="ptag">SOUND DESIGN</span></div>
+            <div class="p-title">Quill — Social</div>
+            <div class="p-meta-line">QUILL / STAPLES — 2025</div>
+          </div>
+          <div class="p-arrow">↗</div>
+        </div>
+      </a>
+
+      <a class="p rev" href="#" onclick="openM(3); return false;">
+        <div class="p-img">
+          <img  class="p-cover" src="img/goshi-cover.jpg"  alt="Motion Paths">
+          <video class="p-loop" src="img/goshi-loop.mp4"   muted loop playsinline preload="none"></video>
+          <div class="p-sweep"></div>
+        </div>
+        <div class="p-body">
+          <div>
+            <div class="p-tags"><span class="ptag">MOTION</span><span class="ptag">2D</span></div>
+            <div class="p-title">Goshi</div>
+            <div class="p-meta-line">ANIMATED BUMPER — 2024</div>
+          </div>
+          <div class="p-arrow">↗</div>
+        </div>
+      </a>
+
+      <a class="p rev" href="#" onclick="openM(4); return false;">
+        <div class="p-img">
+          <img  class="p-cover" src="img/elastic-cover.jpg"  alt="Elastic">
+          <video class="p-loop" src="img/elastic-loop.mp4"   muted loop playsinline preload="none"></video>
+          <div class="p-sweep"></div>
+        </div>
+        <div class="p-body">
+          <div>
+            <div class="p-tags"><span class="ptag">MOTION</span><span class="ptag">AE</span></div>
+            <div class="p-title">Elastic.</div>
+            <div class="p-meta-line">STUDY — 2025</div>
+          </div>
+          <div class="p-arrow">↗</div>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <div class="rule-full"></div>
+
+  <!-- ABOUT -->
+  <div class="about-bg" id="about">
+    <div class="about-grid">
+
+      <div class="phone-wrap rev">
+        <div class="phone">
+          <div class="phone-notch"><div class="phone-pill"></div></div>
+          <div class="phone-hdr">
+            <div class="phone-name">Mello Ige</div>
+            <div class="phone-sub">Motion Designer · Chicago</div>
+          </div>
+          <div class="phone-msgs" id="phoneMsgs">
+            <div class="msg-time">Today</div>
+          </div>
+          <div class="phone-bar">
+            <div class="phone-input">iMessage</div>
+            <div class="phone-send">↑</div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h2 class="about-greeting rev">Ciao,<br>I'm Mello.</h2>
+        <p class="about-p rev">
+          Multi-disciplinary artist based out of <strong>Chicago</strong>. BFA candidate at the
+          <strong>School of the Art Institute of Chicago</strong>, focus in visual communication.
+        </p>
+        <p class="about-p rev">
+          From corporate work at <a href="#">Quill</a> to freelance with <a href="#">Goshi</a> —
+          I find unique angles for every client. Outside of motion I make <strong>electronic music</strong>,
+          DJ around the country, and write for local outlets.
+        </p>
+
+        <div class="exp-block rev">
+          <div class="exp-label">EXPERIENCE</div>
+          <div class="exp-item">
+            <div><div class="exp-role">Motion Designer — Quill</div><div class="exp-where">Animated assets & social media content</div></div>
+            <div class="exp-year">2025</div>
+          </div>
+          <div class="exp-item">
+            <div><div class="exp-role">Assistant Writer — SAIC</div><div class="exp-where">Website copy & content</div></div>
+            <div class="exp-year">2024</div>
+          </div>
+          <div class="exp-item">
+            <div><div class="exp-role">Student — SAIC</div><div class="exp-where">BFA, Design & Motion, 2022–2026</div></div>
+            <div class="exp-year">NOW</div>
+          </div>
+        </div>
+
+        <div class="skills-block rev">
+          <div class="skills-label">TOOLS & SKILLS</div>
+          <div class="skills-row">
+            <span class="chip">After Effects</span>
+            <span class="chip">Cinema 4D</span>
+            <span class="chip">Houdini</span>
+            <span class="chip">Premiere Pro</span>
+            <span class="chip">Figma</span>
+            <span class="chip">Substance</span>
+            <span class="chip">Lottie</span>
+            <span class="chip">GSAP</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact-inner">
+      <p class="sec-label rev">03 — CONTACT</p>
+      <h2 class="contact-big rev">Let's<br><span class="dim">make</span><br>things.</h2>
+      <p class="contact-sub rev">
+        Open to freelance, brand collaborations, and full-time roles.<br>
+        Chicago-based. Responds within 24 hours.
+      </p>
+      <div class="contact-row rev">
+        <a class="cpill" href="mailto:mellogf757@gmail.com"><span class="cp-l">EMAIL</span><span class="cp-v">mellogf757@gmail.com</span></a>
+        <a class="cpill" href="https://instagram.com"    target="_blank"><span class="cp-l">IG</span><span class="cp-v">@mello.uun</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-in">
+      <a href="#home" class="f-logo">Mello Ige</a>
+      <ul class="f-links">
+        <li><a href="https://instagram.com/mello.uun" target="_blank">Instagram</a></li>
+        <li><a href="https://www.linkedin.com/in/mello-ige-9003282a9/"  target="_blank">LinkedIn</a></li>
+      </ul>
+      <span class="f-copy">© 2025 — CHICAGO, IL</span>
+    </div>
+  </footer>
+
+  <!-- MODAL -->
+  <div class="m-ov" id="mOv" onclick="handleOv(event)">
+    <div class="m-box">
+      <div class="m-bar">
+        <div class="m-dots">
+          <div class="m-dot"></div><div class="m-dot"></div><div class="m-dot"></div>
+        </div>
+        <button class="m-esc" onclick="closeM()">ESC TO CLOSE</button>
+      </div>
+      <div class="m-body">
+        <div class="m-tags" id="mTags"></div>
+        <h2 class="m-title" id="mTitle"></h2>
+        <p  class="m-sub"   id="mSub"></p>
+        <div class="m-media">
+          <div class="m-main"   id="mMain"></div>
+          <div class="m-thumbs" id="mThumbs"></div>
+        </div>
+        <p class="m-text" id="mText"></p>
+        <div class="m-dets" id="mDets"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JS: data first, then logic -->
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>
