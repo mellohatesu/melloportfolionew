@@ -640,6 +640,79 @@ footer { border-top: 1px solid var(--line); }
 .rev { opacity: 0; transform: translateY(22px); transition: opacity .65s ease, transform .65s var(--out); }
 .rev.on { opacity: 1; transform: translateY(0); }
 
+/* ── MODAL PROCESS SECTIONS ── */
+.m-process {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.m-proc-item {
+  display: flex;
+  gap: 1.25rem;
+  padding: 1.1rem 0;
+  border-top: 1px solid var(--line);
+  align-items: flex-start;
+}
+.m-proc-item:last-child { border-bottom: 1px solid var(--line); }
+.m-proc-num {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--g2);
+  letter-spacing: .1em;
+  flex-shrink: 0;
+  padding-top: 2px;
+  min-width: 24px;
+}
+.m-proc-content { flex: 1; }
+.m-proc-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: .15em;
+  color: var(--g2);
+  margin-bottom: .5rem;
+}
+.m-proc-body {
+  font-family: var(--grotesk);
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--g1);
+  line-height: 1.85;
+  letter-spacing: -.01em;
+}
+.m-proc-body strong { color: var(--white); font-weight: 500; }
+
+/* ── MODAL MEDIA NAV ARROWS ── */
+.m-main-wrap {
+  position: relative;
+  margin-bottom: 8px;
+}
+.m-nav {
+  position: absolute;
+  top: 50%; transform: translateY(-50%);
+  z-index: 10;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: rgba(14,14,12,.75);
+  border: 1px solid rgba(242,242,239,.15);
+  color: var(--white);
+  font-size: 20px; line-height: 1;
+  display: flex; align-items: center; justify-content: center;
+  cursor: none;
+  transition: background .2s, border-color .2s, transform .3s var(--spring), opacity .2s;
+  opacity: 0;
+}
+.m-main-wrap:hover .m-nav { opacity: 1; }
+.m-nav:hover {
+  background: rgba(242,242,239,.15);
+  border-color: rgba(242,242,239,.4);
+  transform: translateY(-50%) scale(1.1);
+}
+.m-nav:active { transform: translateY(-50%) scale(.95); }
+.m-nav-prev { left: 10px; }
+.m-nav-next { right: 10px; }
+.m-nav.hidden { opacity: 0 !important; pointer-events: none; }
+
 /* ── RESPONSIVE ── */
 @media (max-width: 640px) {
   nav             { padding: 0 1.25rem; }

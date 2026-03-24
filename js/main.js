@@ -131,14 +131,45 @@ function buildThumbs(media) {
       t.appendChild(lbl);
     }
 
-    t.addEventListener('click', () => {
+t.addEventListener('click', () => {
       strip.querySelectorAll('.m-thumb').forEach(x => x.classList.remove('active'));
       t.classList.add('active');
+      currentMediaIndex = i;
       renderMain(item);
     });
 
     strip.appendChild(t);
   });
+}
+
+let currentMediaIndex = 0;
+let currentMedia = [];
+
+function stepMedia(dir) {
+  const thumbs = document.getElementById('mThumbs');
+  const allThumbs = thumbs.querySelectorAll('.m-thumb');
+  const total = allThumbs.length;
+  if (total <= 1) return;
+
+  currentMediaIndex = (currentMediaIndex + dir + total) % total;
+
+  allThumbs.forEach(t => t.classList.remove('active'));
+  allThumbs[currentMediaIndex].classList.add('active');
+  renderMain(currentMedia[currentMediaIndex]);
+  updateArrows(total);
+}
+
+function updateArrows(total) {
+  const prev = document.getElementById('mPrev');
+  const next = document.getElementById('mNext');
+  if (!prev || !next) return;
+  if (total <= 1) {
+    prev.classList.add('hidden');
+    next.classList.add('hidden');
+  } else {
+    prev.classList.remove('hidden');
+    next.classList.remove('hidden');
+  }
 }
 
 function openM(index) {
@@ -155,8 +186,28 @@ function openM(index) {
      </div>`
   ).join('');
 
+  // process sections
+  const processEl = document.getElementById('mProcess');
+  if (p.process && p.process.length) {
+    processEl.innerHTML = p.process.map((s, i) =>
+      `<div class="m-proc-item">
+         <div class="m-proc-num">0${i + 1}</div>
+         <div class="m-proc-content">
+           <div class="m-proc-label">${s.label}</div>
+           <p class="m-proc-body">${s.body}</p>
+         </div>
+       </div>`
+    ).join('');
+    processEl.style.display = 'block';
+  } else {
+    processEl.style.display = 'none';
+  }
+
+currentMedia = p.media;
+  currentMediaIndex = 0;
   renderMain(p.media[0]);
   buildThumbs(p.media);
+  updateArrows(p.media.length);
 
   document.getElementById('mOv').classList.add('open');
   document.body.style.overflow = 'hidden';

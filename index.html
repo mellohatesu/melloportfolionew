@@ -273,11 +273,16 @@
         <div class="m-tags" id="mTags"></div>
         <h2 class="m-title" id="mTitle"></h2>
         <p  class="m-sub"   id="mSub"></p>
-        <div class="m-media">
-          <div class="m-main"   id="mMain"></div>
+<div class="m-media">
+          <div class="m-main-wrap">
+            <button class="m-nav m-nav-prev" id="mPrev" onclick="stepMedia(-1)">‹</button>
+            <div class="m-main" id="mMain"></div>
+            <button class="m-nav m-nav-next" id="mNext" onclick="stepMedia(1)">›</button>
+          </div>
           <div class="m-thumbs" id="mThumbs"></div>
         </div>
         <p class="m-text" id="mText"></p>
+        <div class="m-process" id="mProcess"></div>
         <div class="m-dets" id="mDets"></div>
       </div>
     </div>
