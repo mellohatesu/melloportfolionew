@@ -84,6 +84,7 @@ const PROJECTS = [
       { type: 'vimeo', id: '1167972742' },
     ],
   },
+  
   {
     title:   "Elektron Bumper",
     year:    "2025",
@@ -180,4 +181,38 @@ const PROJECTS = [
       { type: 'vimeo', id: '1160322882' },
     ],
   },
+  {
+    title:   "Kapital.",
+    year:    "2025",
+    role:    "MOTION STUDY — PERSONAL",
+    tags:    ["BRAND", "TEXTURE", "PRINT"],
+    cover:   'img/kapital-cover.jpg',
+    loop:    'img/kapital-loop.mp4',
+    body:    `A personal motion study exploring <strong>editorial print aesthetics in motion</strong> — heavy textures, tight typography, and the kind of tactile grain you'd find flipping through a magazine.`,
+    process: [
+      {
+        label: 'THE ASK',
+        body:  `Self-directed. Wanted to push into territory I don't usually work in — <strong>print and editorial design translated into motion</strong>. The goal was to make something that felt like it existed on paper first.`,
+      },
+      {
+        label: 'APPROACH',
+        body:  `Pulled reference from editorial brands and print magazines — studying how they use <strong>texture, negative space, and typographic hierarchy</strong> to create weight and mood. Then asked: how does that feel when it moves?`,
+      },
+      {
+        label: 'EXECUTION',
+        body:  `Built entirely in After Effects. Layered paper grain, ink textures, and halftone elements to give the motion a <strong>physical, analog quality</strong>. Typography was treated as a design element first, communication second.`,
+      },
+    ],
+    details: [
+      { l: "TYPE",   v: "Personal Study"  },
+      { l: "TOOLS",  v: "AE + Photoshop"  },
+      { l: "YEAR",   v: "2025"            },
+      { l: "STATUS", v: "Completed"       },
+    ],
+    media: [
+      { type: 'vimeo',       id: '1160322849'    },
+      { type: 'image', src: 'img/kapital-process.jpg'    },
+      { type: 'image', src: 'img/kapital-process2.jpg'    },
+    ],
+  }
 ];
