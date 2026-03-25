@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quill — Mello Ige</title>
+  <meta name="description" content="Quill case study — Motion Designer Mello Ige. Paid media, organic social, and in-house video work.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* ── PAGE SPECIFIC ── */
+    .q-back {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 500; height: 52px;
+      display: flex; align-items: center;
+      padding: 0 2rem;
+      background: rgba(14,14,12,.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--line);
+      justify-content: space-between;
+    }
+    .q-back-link {
+      font-family: var(--mono); font-size: 11px;
+      letter-spacing: .1em; color: var(--g2);
+      text-decoration: none; cursor: none;
+      display: flex; align-items: center; gap: 8px;
+      transition: color .2s;
+    }
+    .q-back-link:hover { color: var(--white); }
+    .q-back-logo {
+      font-family: var(--grotesk); font-weight: 700; font-size: 15px;
+      letter-spacing: -.02em; color: var(--white);
+      text-decoration: none; cursor: none;
+    }
+
+    /* ── HERO ── */
+    .q-hero {
+      min-height: 70vh; display: flex; align-items: flex-end;
+      padding: 100px 0 5rem; position: relative; overflow: hidden;
+    }
+    .q-hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background: linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+    }
+    .q-hero-inner {
+      max-width: 1080px; margin: 0 auto;
+      padding: 0 2rem; width: 100%;
+      position: relative; z-index: 1;
+    }
+    .q-client-label {
+      font-family: var(--mono); font-size: 10px;
+      letter-spacing: .2em; color: var(--g2);
+      margin-bottom: 1rem;
+      display: flex; align-items: center; gap: .75rem;
+    }
+    .q-client-label::before {
+      content: ''; display: block;
+      width: 20px; height: 1px; background: var(--g3);
+    }
+    .q-hero-title {
+      font-family: var(--grotesk); font-weight: 700;
+      font-size: clamp(56px, 10vw, 130px);
+      line-height: .88; letter-spacing: -.04em;
+      color: var(--white); margin-bottom: 1.5rem;
+    }
+    .q-hero-title .dim {
+      color: transparent; -webkit-text-stroke: 1px var(--g3);
+    }
+    .q-hero-meta {
+      display: flex; flex-wrap: wrap; gap: 1.5rem;
+      align-items: center; margin-bottom: 2rem;
+    }
+    .q-meta-item {
+      display: flex; flex-direction: column; gap: 3px;
+    }
+    .q-meta-l {
+      font-family: var(--mono); font-size: 9px;
+      letter-spacing: .15em; color: var(--g2);
+    }
+    .q-meta-v {
+      font-family: var(--grotesk); font-size: 13px;
+      font-weight: 500; color: var(--white);
+    }
+    .q-hero-desc {
+      font-family: var(--grotesk); font-weight: 300;
+      font-size: clamp(15px, 2vw, 19px);
+      color: var(--g1); line-height: 1.8;
+      max-width: 580px; letter-spacing: -.01em;
+    }
+    .q-hero-desc strong { color: var(--white); font-weight: 500; }
+
+    /* ── OVERVIEW ── */
+    .q-overview {
+      max-width: 1080px; margin: 0 auto;
+      padding: 5rem 2rem;
+      display: grid; grid-template-columns: 1fr;
+      gap: 3rem;
+      border-top: 1px solid var(--line);
+    }
+    @media (min-width: 768px) {
+      .q-overview { grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+    }
+    .q-overview-label {
+      font-family: var(--mono); font-size: 9px;
+      letter-spacing: .15em; color: var(--g2);
+      margin-bottom: .75rem;
+      padding-bottom: .5rem;
+      border-bottom: 1px solid var(--line);
+    }
+    .q-overview-text {
+      font-family: var(--grotesk); font-size: 15px;
+      font-weight: 300; color: var(--g1);
+      line-height: 1.85; letter-spacing: -.01em;
+    }
+    .q-overview-text strong { color: var(--white); font-weight: 500; }
+    .q-scope-list {
+      display: flex; flex-direction: column; gap: 0;
+      margin-top: .5rem;
+    }
+    .q-scope-item {
+      display: flex; align-items: center; gap: 1rem;
+      padding: .75rem 0; border-bottom: 1px solid var(--line);
+      font-family: var(--grotesk); font-size: 13px;
+      font-weight: 400; color: var(--white);
+    }
+    .q-scope-item::before {
+      content: ''; display: block;
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--white); flex-shrink: 0;
+    }
+    .q-scope-num {
+      font-family: var(--mono); font-size: 10px;
+      color: var(--g2); margin-left: auto;
+    }
+
+    /* ── CHANNEL SECTION ── */
+    .q-channel {
+      border-top: 1px solid var(--line);
+      padding: 5rem 0;
+    }
+    .q-channel-inner {
+      max-width: 1080px; margin: 0 auto; padding: 0 2rem;
+    }
+    .q-channel-header {
+      display: flex; align-items: baseline;
+      gap: 1.5rem; margin-bottom: 3rem;
+    }
+    .q-channel-num {
+      font-family: var(--mono); font-size: 11px;
+      letter-spacing: .1em; color: var(--g2);
+    }
+    .q-channel-title {
+      font-family: var(--grotesk); font-weight: 700;
+      font-size: clamp(28px, 4vw, 48px);
+      letter-spacing: -.03em; color: var(--white);
+      line-height: 1;
+    }
+    .q-channel-body {
+      max-width: 640px; margin-bottom: 3rem;
+    }
+    .q-channel-desc {
+      font-family: var(--grotesk); font-size: 15px;
+      font-weight: 300; color: var(--g1);
+      line-height: 1.85; letter-spacing: -.01em;
+      margin-bottom: 1.25rem;
+    }
+    .q-channel-desc strong { color: var(--white); font-weight: 500; }
+    .q-channel-approach {
+      font-family: var(--mono); font-size: 11px;
+      letter-spacing: .06em; color: var(--g2);
+      line-height: 1.8;
+      border-left: 2px solid var(--line);
+      padding-left: 1rem;
+    }
+
+    /* ── VIDEO EMBEDS ── */
+    /* 16:9 horizontal */
+    .q-video-16 {
+      width: 100%; aspect-ratio: 16 / 9;
+      border-radius: 16px; overflow: hidden;
+      border: 1px solid var(--line);
+      background: var(--bg3);
+      position: relative;
+    }
+    .q-video-16 iframe {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%; border: none;
+    }
+
+    /* vertical 9:16 grid */
+    .q-vertical-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    @media (max-width: 600px) {
+      .q-vertical-grid { grid-template-columns: 1fr; }
+    }
+    .q-video-9 {
+      width: 100%; aspect-ratio: 9 / 16;
+      border-radius: 16px; overflow: hidden;
+      border: 1px solid var(--line);
+      background: var(--bg3);
+      position: relative;
+    }
+    .q-video-9 iframe {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%; border: none;
+    }
+    .q-video-caption {
+      font-family: var(--mono); font-size: 9px;
+      letter-spacing: .1em; color: var(--g2);
+      margin-top: 8px; text-align: center;
+    }
+
+    /* ── BACK TO PORTFOLIO ── */
+    .q-footer {
+      border-top: 1px solid var(--line);
+      padding: 4rem 2rem;
+      display: flex; align-items: center;
+      justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+      max-width: 1080px; margin: 0 auto;
+    }
+    .q-footer-text {
+      font-family: var(--grotesk); font-weight: 700;
+      font-size: clamp(28px, 4vw, 48px);
+      letter-spacing: -.03em; color: var(--white);
+    }
+    .q-footer-text .dim {
+      color: transparent; -webkit-text-stroke: 1px var(--g3);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      .q-back { padding: 0 1.25rem; }
+      .q-hero-inner { padding: 0 1.25rem; }
+      .q-overview { padding: 3.5rem 1.25rem; }
+      .q-channel-inner { padding: 0 1.25rem; }
+      .q-channel { padding: 3.5rem 0; }
+      .q-footer { padding: 3rem 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- CURSOR -->
+  <div class="cur"  id="cur"></div>
+  <div class="cur2" id="cur2"></div>
+
+  <!-- NAV -->
+  <div class="q-back">
+    <a href="index.html" class="q-back-link">← BACK TO WORK</a>
+    <a href="index.html" class="q-back-logo">Mello Ige</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="q-hero">
+    <div class="q-hero-bg"></div>
+    <div class="q-hero-inner">
+      <p class="q-client-label rev">CORPORATE — MOTION DESIGNER</p>
+      <h1 class="q-hero-title rev">
+        Quill<span class="dim">.</span>
+      </h1>
+      <div class="q-hero-meta rev">
+        <div class="q-meta-item">
+          <span class="q-meta-l">CLIENT</span>
+          <span class="q-meta-v">Quill / Staples Inc.</span>
+        </div>
+        <div class="q-meta-item">
+          <span class="q-meta-l">ROLE</span>
+          <span class="q-meta-v">Motion Designer</span>
+        </div>
+        <div class="q-meta-item">
+          <span class="q-meta-l">YEAR</span>
+          <span class="q-meta-v">2025</span>
+        </div>
+        <div class="q-meta-item">
+          <span class="q-meta-l">DELIVERABLES</span>
+          <span class="q-meta-v">Paid Media · Organic Social · In-House</span>
+        </div>
+      </div>
+      <p class="q-hero-desc rev">
+        A full-spectrum motion role at <strong>Quill</strong>, a Staples company —
+        covering everything from performance-driven paid media to
+        organic social content and internal video production.
+        <strong>Three channels, three distinct approaches, one consistent standard.</strong>
+      </p>
+    </div>
+  </section>
+
+  <!-- OVERVIEW -->
+  <div style="background: var(--bg2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
+    <div class="q-overview">
+      <div>
+        <div class="q-overview-label">THE BRIEF</div>
+        <p class="q-overview-text">
+          Quill needed a motion designer who could operate across multiple content pipelines simultaneously — <strong>staying on-brand while adapting tone and format to the specific demands of each channel</strong>. Fast turnarounds, high volume, and a brand with real visual standards.
+          <br><br>
+          The challenge wasn't just making things look good — it was building a <strong>repeatable, efficient workflow</strong> that could keep up with the pace of a major e-commerce brand.
+        </p>
+      </div>
+      <div>
+        <div class="q-overview-label">SCOPE OF WORK</div>
+        <div class="q-scope-list">
+          <div class="q-scope-item">Paid media video ads <span class="q-scope-num">01</span></div>
+          <div class="q-scope-item">Organic social content <span class="q-scope-num">02</span></div>
+          <div class="q-scope-item">In-house video production <span class="q-scope-num">03</span></div>
+          <div class="q-scope-item">Motion templates & asset libraries <span class="q-scope-num">04</span></div>
+          <div class="q-scope-item">Multi-format delivery (16:9, 9:16, 1:1) <span class="q-scope-num">05</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHANNEL 01 — PAID MEDIA -->
+  <div class="q-channel">
+    <div class="q-channel-inner">
+      <div class="q-channel-header rev">
+        <span class="q-channel-num">01</span>
+        <h2 class="q-channel-title">Paid Media</h2>
+      </div>
+      <div class="q-channel-body rev">
+        <p class="q-channel-desc">
+          Paid media lives or dies in the first two seconds. Every asset needed to <strong>stop a scroll, communicate a value prop, and drive a click</strong> — all before a viewer makes a conscious decision to watch.
+        </p>
+        <p class="q-channel-approach">
+          APPROACH — Led with the offer, not the brand. Tight cuts, bold typography, and motion that creates urgency without feeling aggressive. Optimized for sound-off viewing with text overlays that carry the full message independently.
+        </p>
+      </div>
+        <div class="q-video-16 rev">
+            <iframe
+            src="https://player.vimeo.com/video/1176735413?autoplay=0&loop=1&color=ffffff&title=0&byline=0&portrait=0"
+            allow="autoplay; fullscreen; picture-in-picture; muted;"
+            allowfullscreen>
+            </iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHANNEL 02 — ORGANIC SOCIAL -->
+  <div class="q-channel" style="background: var(--bg2);">
+    <div class="q-channel-inner">
+      <div class="q-channel-header rev">
+        <span class="q-channel-num">02</span>
+        <h2 class="q-channel-title">Organic Social</h2>
+      </div>
+      <div class="q-channel-body rev">
+        <p class="q-channel-desc">
+          Organic social demanded a different energy entirely. Without a media budget forcing impressions, <strong>the content had to earn attention through personality and relevance</strong> — not just production quality.
+        </p>
+        <p class="q-channel-approach">
+          APPROACH — Leaned into vertical-first formats and native platform behavior. Looser, more conversational motion. Content that felt like it belonged in a feed rather than interrupting one. Built for sharing, not just viewing.
+        </p>
+      </div>
+      <div class="q-vertical-grid rev">
+        <div>
+          <div class="q-video-9">
+            <iframe
+              src="https://player.vimeo.com/video/1176738831?autoplay=0&loop=1&color=ffffff&title=0&byline=0&portrait=0"
+              allow="autoplay; fullscreen; picture-in-picture"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="q-video-caption">SOCIAL 01</div>
+        </div>
+        <div>
+          <div class="q-video-9">
+            <iframe
+              src="https://player.vimeo.com/video/1176738058?autoplay=0&loop=1&color=ffffff&title=0&byline=0&portrait=0"
+              allow="autoplay; fullscreen; picture-in-picture"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="q-video-caption">SOCIAL 02</div>
+        </div>
+        <div>
+          <div class="q-video-9">
+            <iframe
+              src="https://player.vimeo.com/video/1176737854?autoplay=0&loop=1&color=ffffff&title=0&byline=0&portrait=0"
+              allow="autoplay; fullscreen; picture-in-picture"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="q-video-caption">SOCIAL 03</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHANNEL 03 — IN-HOUSE -->
+  <div class="q-channel">
+    <div class="q-channel-inner">
+      <div class="q-channel-header rev">
+        <span class="q-channel-num">03</span>
+        <h2 class="q-channel-title">In-House Video</h2>
+      </div>
+      <div class="q-channel-body rev">
+        <p class="q-channel-desc">
+          In-house video served the internal side of the business — product showcases, team communications, and brand-building content that <strong>didn't need to perform against an algorithm but still needed to represent the brand well</strong>.
+        </p>
+        <p class="q-channel-approach">
+          APPROACH — More breathing room, more storytelling. These pieces could afford to be slower and more considered. Focus on clean production, clear narrative structure, and motion that supported the message rather than driving it.
+        </p>
+      </div>
+      <div class="q-video-16 rev">
+        <iframe
+          src="https://player.vimeo.com/video/1160322913?autoplay=0&loop=1&color=ffffff&title=0&byline=0&portrait=0"
+          allow="autoplay; fullscreen; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div style="border-top: 1px solid var(--line);">
+    <div class="q-footer">
+      <div>
+        <div style="font-family: var(--mono); font-size: 9px; letter-spacing: .15em; color: var(--g2); margin-bottom: .75rem;">NEXT</div>
+        <h3 class="q-footer-text">Back to <span class="dim">work.</span></h3>
+      </div>
+      <a href="index.html#work" class="btn btn-s" style="cursor: none;">View All Projects ↗</a>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script>
+    // minimal init for this page — cursor + reveal only
+    document.addEventListener('DOMContentLoaded', () => {
+      initCursor();
+      initReveal();
+    });
+  </script>
+
+</body>
+</html>
