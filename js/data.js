@@ -146,6 +146,9 @@ const PROJECTS = [
     ],
     media: [
       { type: 'vimeo', id: '1160322890' },
+      { type: 'vimeo', id: '1178289573' },
+      { type: 'image', src: 'img/goshi-process1.png'  },
+      { type: 'image', src: 'img/goshi-process2.png' }
     ],
   },
   {
