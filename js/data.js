@@ -82,6 +82,8 @@ const PROJECTS = [
     ],
     media: [
       { type: 'vimeo', id: '1167972742' },
+      { type: 'vimeo', id: '1178292913' },
+      { type: 'vimeo', id: '1178295457' }
     ],
   },
   {
