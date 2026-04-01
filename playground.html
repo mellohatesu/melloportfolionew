@@ -60,7 +60,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:52px;display:flex;ali
 .scatter-title{font-family:var(--grotesk);font-weight:700;font-size:clamp(28px,4vw,52px);letter-spacing:-.03em;color:var(--white);margin-bottom:4rem}
 
 .card{
-  position:absolute;width:340px;border-radius:16px;overflow:hidden;
+    position:absolute;width:260px;border-radius:16px;overflow:hidden;
   cursor:none;border:none;background:var(--bg3);
   transition:transform .5s var(--spring),box-shadow .3s,border-radius .3s;
   z-index:1;
@@ -251,10 +251,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:52px;display:flex;ali
     </div>
   </div>
 
-    <div class="card" id="card4" data-src="img/runningMan.mp4" data-ph="06" onclick="openLb(this)">
+    <div class="card" id="card5" data-src="img/runningMan.mp4" data-ph="06" onclick="openLb(this)">
     <div class="card-thumb">
       <video class="card-loop" src="img/runningMan.mp4" muted loop playsinline preload="none"></video>
       <span class="card-ph">06</span>
+    </div>
+  </div>
+  <div class="card" id="card6" data-src="img/ExpressionTest.mp4" data-ph="07" onclick="openLb(this)">
+    <div class="card-thumb">
+      <video class="card-loop" src="img/ExpressionTest.mp4" muted loop playsinline preload="none"></video>
+      <span class="card-ph">07</span>
     </div>
   </div>
 
@@ -339,21 +345,43 @@ for(let i=0;i<12;i++)setTimeout(spawnHeroKao,i*600);
 setInterval(spawnHeroKao,2000);
 
 /* ── SCATTER CARDS ── */
-const scatterPos=[
-  {top:'130px',left:'4%',rotate:'-4deg'},
-  {top:'80px',left:'32%',rotate:'3deg'},
-  {top:'110px',left:'60%',rotate:'-2.5deg'},
-  {top:'400px',left:'16%',rotate:'5deg'},
-  {top:'370px',left:'50%',rotate:'-3deg'},
-];
 function positionCards(){
   if(window.innerWidth<=700)return;
-  scatterPos.forEach((pos,i)=>{
-    const card=document.getElementById('card'+i);
-    if(card){card.style.top=pos.top;card.style.left=pos.left;card.style.transform=`rotate(${pos.rotate})`;}
+  const cards=document.querySelectorAll('.card');
+  const total=cards.length;
+  const cols=3;
+  const rows=Math.ceil(total/cols);
+  const wrap=document.getElementById('scatter');
+  const W=wrap.offsetWidth;
+
+  // how much space each cell gets
+  const cellW=W/cols;
+  const cellH=220;
+  const cardW=260; // must match .card width in CSS
+
+  // set scatter-wrap height to fit all rows
+  wrap.style.minHeight=(rows*cellH+180)+'px';
+
+  const rotations=['-4deg','3deg','-2.5deg','5deg','-3deg','2deg','-5deg','1.5deg','-3.5deg','4deg'];
+
+  cards.forEach((card,i)=>{
+    const col=i%cols;
+    const row=Math.floor(i/cols);
+
+    // center card in its cell, add a little jitter so it feels scattered not gridded
+    const jitterX=(Math.random()-.5)*40;
+    const jitterY=(Math.random()-.5)*30;
+
+    const x=col*cellW+(cellW-cardW)/2+jitterX;
+    const y=80+row*cellH+jitterY;
+
+    card.style.left=x+'px';
+    card.style.top=y+'px';
+    card.style.transform=`rotate(${rotations[i%rotations.length]})`;
   });
 }
-positionCards();window.addEventListener('resize',positionCards);
+positionCards();
+window.addEventListener('resize',positionCards);
 
 /* auto-play loops on hover */
 document.querySelectorAll('.card').forEach(card=>{
