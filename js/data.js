@@ -20,6 +20,40 @@
 */
 
 const PROJECTS = [
+    {
+    title:   "MacBook Neo Bumper",
+    year:    "2026",
+    role:    "ART DIRECTION · 3D · TYPE ANIMATION — PERSONAL",
+    tags:    ["3D", "MOTION", "TYPE"],
+    cover:   'img/macneo-cover.jpg',
+    loop:    'img/macneo-loop.mp4',
+    body:    `A 10-second product bumper concept for the MacBook Neo — <strong>built entirely from scratch in Blender and After Effects</strong>. Apple-inspired restraint: every frame earns its place.`,
+    process: [
+      {
+        label: 'THE ASK',
+        body:  `Self-directed concept. The challenge was capturing Apple's visual language authentically — <strong>precision, negative space, and the feeling that the hardware is doing something extraordinary</strong> — in roughly 10 seconds.`,
+      },
+      {
+        label: 'APPROACH',
+        body:  `Started in Blender, lighting the MacBook Neo model to match Apple's clean, studio-lit aesthetic. Kept the 3D work restrained — no excess detail, just the surfaces and light doing the work. Type was treated as a design element from the start, not an afterthought.`,
+      },
+      {
+        label: 'EXECUTION',
+        body:  `3D rendered in Blender, composited and finished in After Effects with <strong>custom type expressions and kinetic title animations</strong>. The timing was engineered to hit like a real product spot — product reveal, feature beat, logo lockup, done.`,
+      },
+    ],
+    details: [
+      { l: "TYPE",    v: "Personal Concept"        },
+      { l: "TOOLS",   v: "Blender + AE"             },
+      { l: "YEAR",    v: "2025"                     },
+      { l: "CREDITS", v: "Sketchfab model by Ranguel"     },
+    ],
+    media: [
+      { type: 'vimeo', id: '1182478928' },
+      { type: 'vimeo', id: '1182481099' },
+      { type: 'vimeo', id: '1182481088' }
+    ],
+  },
   {
     title:   "CS2 Weapon Skin",
     year:    "2026",
