@@ -45,7 +45,7 @@ const PROJECTS = [
     details: [
       { l: "TYPE",    v: "Personal Concept"        },
       { l: "TOOLS",   v: "Blender + AE"             },
-      { l: "YEAR",    v: "2025"                     },
+      { l: "YEAR",    v: "2026"                     },
       { l: "CREDITS", v: "Sketchfab model by Ranguel"     },
     ],
     media: [
